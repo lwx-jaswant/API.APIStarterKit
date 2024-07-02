@@ -1,0 +1,73 @@
+﻿@model Core.Data.Models.DashboardViewModel.UserMSDevSummaryViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<hr />
+
+<div class="panel panel-hash">
+    <div class="panel-heading">
+        <h4><b>@localizer["Recent Registered User"]</b></h4>
+    </div>
+    <div class="panel-body scroll panel-height">
+        <table class="CustomTablePurpleRoot" id="tblRecentRegisteredUser">
+            <thead>
+                <tr>
+                    <th>@localizer["Profile ID"]</th>
+                    <th>@localizer["Profile Picture"]</th>
+                    <th>@localizer["First Name"]</th>
+                    <th>@localizer["Last Name"]</th>
+                    <th>@localizer["Phone Number"]</th>
+                    <th>@localizer["Email"]</th>
+                    <th>@localizer["Created Date"]</th>
+                    <th>@localizer["Created By"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var countSL = 1;
+                    foreach (var item in Model.listUserProfile)
+                    {
+                        <tr>
+                            <td>
+                                <a href='#' class='btn btn-link btn-xs'
+                                    onclick=ViewUserDetails('@item.Id')>@item.Id</a>
+                            </td>
+                            <td>
+                                <div class="user-panel mt-2 pb-2 mb-2 d-flex">
+                                    <div class="image">
+                                        <img src="@item.ProfilePicture" class="img-circle elevation-2" alt="User Image">
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="d-block"
+                                            onclick="ViewImage('@item.ProfilePicture', '@item.FirstName')">
+                                            @item.FirstName @item.LastName
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <a href='#' class='btn btn-link btn-xs'
+                                    onclick=ViewUserDetails('@item.Id')>@item.FirstName</a>
+                            </td>
+                            <td>@item.LastName</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.CreatedDate.ToString("dd MMMM yyyy")</td>
+                            <td>@item.CreatedBy</td>
+                        </tr>
+                        countSL++;
+                    }
+                }
+            </tbody>
+        </table>
+
+        <br /><br /><br />
+    </div>
+</div>
+
+<script>
+    var ViewUserDetails = function (Id) {
+        var url = "/UserManagement/ViewUserDetails?Id=" + Id;
+        $('#titleBigModal').html("User Details ");
+        loadBigModal(url);
+    };
+</script>

@@ -1,0 +1,145 @@
+﻿@model Core.Data.Models.UserProfileViewModel.UserProfileCRUDViewModel
+
+<div class="card card-primary card-outline card-tabs">
+    <div class="card-header p-0 pt-1 border-bottom-0">
+        <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="Tab01" data-toggle="pill" href="#divTab01" role="tab"
+                    aria-controls="Tab01" aria-selected="true">Summary</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="Tab02" data-toggle="pill" href="#divTab02" role="tab" aria-controls="Tab02"
+                    aria-selected="true">Employee Details</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card-body">
+        <div class="tab-content" id="tabContent">
+            <div class="tab-pane fade show active" id="divTab01" role="tabpanel" aria-labelledby="divTab01">
+                <div class="row">
+                    <table class="CustomBlueTable" border="1" style=" width:100%;margin:1px auto;">
+                        <tr>
+                            <th>ID</th>
+                            <td>@Model.Id</td>
+                        </tr>
+                        <tr>
+                            <th>Profile Picture</th>
+                            <td>
+                                <div class="user-panel mt-2 pb-2 mb-2 d-flex">
+                                    <div class="image">
+                                        <img src="@Model.ProfilePicture" class="img-circle elevation-2"
+                                            alt="User Image">
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="d-block"
+                                            onclick="ViewImage('@Model.ProfilePicture', '@Model.FirstName')">
+                                            @Model.FirstName @Model.LastName
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Application User Id</th>
+                            <td>@Model.ApplicationUserId</td>
+                        </tr>
+                        <tr>
+                            <th>First Name</th>
+                            <td>@Model.FirstName</td>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <td>@Model.LastName</td>
+                        </tr>
+                        <tr>
+                            <th>Employee Type</th>
+                            <td>@Model.EmployeeTypeDisplay</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td>@Model.PhoneNumber</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>@Model.Email</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>@Model.Address</td>
+                        </tr>
+                        <tr>
+                            <th>Country</th>
+                            <td>@Model.Country</td>
+                        </tr>
+                        <tr>
+                            <th>Date Of Birth</th>
+                            <td>@Model.DateOfBirth</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="divTab02" role="tabpanel" aria-labelledby="divTab02">
+                <div class="row">
+                    <table class="CustomBlueTable" border="1" style=" width:100%;margin:1px auto;">
+                        <tr>
+                            <th>Employee Id</th>
+                            <td>@Model.EmployeeId</td>
+                        </tr>
+                        <tr>
+                            <th>Date Of Birth</th>
+                            <td>@Model.DateOfBirth</td>
+                        </tr>
+                        <tr>
+                            <th>Designation</th>
+                            <td>@Model.DesignationDisplay</td>
+                        </tr>
+                        <tr>
+                            <th>Department</th>
+                            <td>@Model.DepartmentDisplay</td>
+                        </tr>
+                        <tr>
+                            <th>Sub Department</th>
+                            <td>@Model.SubDepartmentDisplay</td>
+                        </tr>
+                        <tr>
+                            <th>Joining Date</th>
+                            <td>@Model.JoiningDate</td>
+                        </tr>
+                        <tr>
+                            <th>Leaving Date</th>
+                            <td>@Model.LeavingDate</td>
+                        </tr>
+                        <tr>
+                            <th>User Role</th>
+                            <td>@Model.RoleIdDisplay</td>
+                        </tr>
+
+                        <tr>
+                            <th>Created Date</th>
+                            <td>@Model.CreatedDate</td>
+                        </tr>
+                        <tr>
+                            <th>Modified Date</th>
+                            <td>@Model.ModifiedDate</td>
+                        </tr>
+                        <tr>
+                            <th>Created By</th>
+                            <td>@Model.CreatedBy</td>
+                        </tr>
+                        <tr>
+                            <th>Modified By</th>
+                            <td>@Model.ModifiedBy</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('input:checkbox').attr('disabled', 'true');
+    $('input:checkbox').addClass('big-checkbox15rem');
+</script>

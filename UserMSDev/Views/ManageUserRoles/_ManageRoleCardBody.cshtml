@@ -1,0 +1,163 @@
+﻿@model Core.Data.Models.ManageUserRolesVM.ManageUserRolesCRUDViewModel
+@{
+    ViewData["Title"] = "Manage Role";
+}
+
+<div class="row">
+    @{
+        var Dataset = Model.listManageUserRolesViewModel;
+        var TotalRow = Dataset.Count;
+        var LastCount = 0;
+        <div class="col-sm-4">
+            <table class="CustomBlueTable" id="myTable1" border="1">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Role Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int index = 1;
+                        @for (int i = 0; i < TotalRow / 3; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @index
+                                </td>
+                                <td>
+
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].ManageRoleDetailsId" />
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].RoleName" />
+                                    @if (Model.listManageUserRolesViewModel[i].IsAllowed)
+                                    {
+                                        <div class="form-check m-1 CustomBG">
+                                            <input type="checkbox" asp-for="@Model.listManageUserRolesViewModel[i].IsAllowed"
+                                        id="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                            <span>@Model.listManageUserRolesViewModel[i].RoleName</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check m-1">
+                                            <input type="checkbox" asp-for="@Model.listManageUserRolesViewModel[i].IsAllowed"
+                                        id="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                            <span>@Model.listManageUserRolesViewModel[i].RoleName</span>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                            index++;
+                            LastCount = i;
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <table class="CustomBlueTable" id="myTable2" border="1">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Role Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int index2 = index;
+                        @for (int i = index2 - 1; i < TotalRow - index2 / 2; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @index2
+                                </td>
+                                <td>
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].ManageRoleDetailsId" />
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].RoleName" />
+                                    @if (Model.listManageUserRolesViewModel[i].IsAllowed)
+                                    {
+                                        <div class="form-check m-1 CustomBG">
+                                            <input type="checkbox" asp-for="@Model.listManageUserRolesViewModel[i].IsAllowed"
+                                        id="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                            <span>@Model.listManageUserRolesViewModel[i].RoleName</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check m-1">
+                                            <input type="checkbox" asp-for="@Model.listManageUserRolesViewModel[i].IsAllowed"
+                                        id="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                            <span>@Model.listManageUserRolesViewModel[i].RoleName</span>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                            index2++;
+                            LastCount = i;
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <table class="CustomBlueTable" id="myTable3" border="1">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Role Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int index3 = index2;
+                        @for (int i = index2 - 1; i < TotalRow; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @index3
+                                </td>
+                                <td>
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].ManageRoleDetailsId" />
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                    <input type="hidden" asp-for="@Model.listManageUserRolesViewModel[i].RoleName" />
+                                    @if (Model.listManageUserRolesViewModel[i].IsAllowed)
+                                    {
+                                        <div class="form-check m-1 CustomBG">
+                                            <input type="checkbox" asp-for="@Model.listManageUserRolesViewModel[i].IsAllowed"
+                                        id="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                            <span>@Model.listManageUserRolesViewModel[i].RoleName</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check m-1">
+                                            <input type="checkbox" asp-for="@Model.listManageUserRolesViewModel[i].IsAllowed"
+                                        id="@Model.listManageUserRolesViewModel[i].RoleId" />
+                                            <span>@Model.listManageUserRolesViewModel[i].RoleName</span>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                            index3++;
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+    }
+</div>
+
+<style>
+    .CustomBG {
+        background-color: rgb(97, 97, 156);
+        color: white;
+    }
+</style>

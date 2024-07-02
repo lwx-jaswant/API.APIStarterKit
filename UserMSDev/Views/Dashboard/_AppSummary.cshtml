@@ -1,0 +1,77 @@
+@model Core.Data.Models.DashboardViewModel.UserMSDevSummaryViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<br />
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+        <a href="@Url.Action("Index", "UserManagement")">
+            <div class="info-box">
+                <span class="box"><img src="/images/dashboard/employee.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@localizer["Employee"]</span>
+                    <span class="info-box-number">
+                        @Model.TotalEmployee
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <a href="@Url.Action("Index", "EmployeeType")">
+            <div class="info-box">
+                <span class="box"><img src="/images/dashboard/employeetype.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@localizer["Employee Type"]</span>
+                    <span class="info-box-number">
+                        @Model.TotalEmployeeType
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <a href="@Url.Action("Index", "Department")">
+            <div class="info-box">
+                <span class="box"><img src="/images/dashboard/department.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@localizer["Department"]</span>
+                    <span class="info-box-number">
+                        @Model.TotalDepartment
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <a href="@Url.Action("Index", "Designation")">
+            <div class="info-box">
+                <span class="box"><img src="/images/dashboard/designation.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@localizer["Designation"]</span>
+                    <span class="info-box-number">
+                        @Model.TotalDesignation
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+        <a href="@Url.Action("Index", "ManageUserRoles")">
+            <div class="info-box">
+                <span class="box"><img src="/images/dashboard/role.png"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@localizer["User Role"]</span>
+                    <span class="info-box-number">
+                        @Model.TotalUserRole
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="wrapper">
+    <div class="panel panel-hash">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    <a class="fa fa-plus-square fa-2x" onclick="AddEdit(0)"></a>
+                </div>
+                <div class="col-md-7 pull-right">
+                    <h5 class="pull-right"><b>&nbsp;Employee Type List</b></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body scroll panel-height">
+            <table id="tblEmployeeType" class="CustomBlueTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .panel-heading {
+        padding: 0px 0px 0px 5px;
+    }
+
+    .panel-body {
+        padding: 5px;
+    }
+
+    .h4 {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+</style>
+
+<script src="~/js/EmployeeType/EmployeeType_CRUD.js"></script>
+<script src="~/js/EmployeeType/EmployeeType_Datatable.js"></script>
+
+<script>
+    setTimeout(function () {
+        TestAPI();
+    }, 500);
+
+    var TestAPI = function () {
+        var APIBaseURL = 'http://208.87.132.188:81/api/';
+        var APIBaseURL2 = 'http://localhost:5002/api/';
+        var APIBaseURL3 = 'http://94.100.26.222:97/api/';
+
+        $.ajax({
+            type: "GET",
+            url: APIBaseURL3 + 'Home',
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (response) {
+                console.log(response.responseText);
+            }
+        });
+    }
+</script>
